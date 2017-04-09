@@ -1,0 +1,56 @@
+<?= $this->tag->linkTo(['/admin/stations/new', $t->_('add'), 'class' => 'btn btn-primary']) ?>
+
+<?= $this->tag->form(['admin/stations', 'class' => 'form-inline pull-right']) ?>
+    <div class="form-group">
+        <?= $this->tag->textField(['name', 'class' => 'form-control', 'placeholder' => $t->_('name')]) ?>
+    </div>
+
+    <?= $this->tag->submitButton(['Search', 'class' => 'btn btn-default']) ?>
+<?= $this->tag->endform() ?>
+
+<p><?= $this->flashSession->output() ?></p>
+
+<div class="box">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th><?= $t->_('name') ?></th>
+                <th><?= $t->_('latitude') ?></th>
+                <th><?= $t->_('longitude') ?></th>
+                <th align="center"><?= $t->_('bikes_capacity') ?></th>
+                <th align="center"><?= $t->_('bikes_available') ?></th>
+                <th><?= $t->_('status') ?></th>
+                <th class="text-right"><?= $t->_('actions') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php if ($page->items) { ?>
+            <?php foreach ($page->items as $item) { ?>
+                <tr>
+                    <td><?= $item->id ?></td>
+                    <td><?= $this->escaper->escapeHtml($item->name) ?></td>
+                    <td><?= $this->escaper->escapeHtml($item->latitude) ?></td>
+                    <td><?= $this->escaper->escapeHtml($item->longitude) ?></td>
+                    <td align="center"><?= $this->escaper->escapeHtml($item->bikes_capacity) ?></td>
+                    <td align="center"><?= $this->escaper->escapeHtml($item->bikes_available) ?></td>
+                    <td><?= $t->_(($item->active ? 'active' : 'inactive')) ?></td>
+                    <td class="text-right">
+                        <?= $this->tag->linkTo(['/admin/stations/edit/' . $item->id, $t->_('edit')]) ?>
+                    </td>
+                </tr>
+            <?php } ?>
+        <?php } else { ?>
+            <tr>
+                <td colspan="8" class="warning text-center"><?= $t->_('no_data') ?></td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+</div>
+
+<?php $this->partial('partials/pagination', ['controller' => 'stations']); ?>
+
+<?php if ($this->request->isPost()) { ?>
+    <?= $this->tag->linkTo(['/admin/stations', $t->_('back to list')]) ?>
+<?php } ?>

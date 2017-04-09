@@ -1,0 +1,50 @@
+$fontSize: 14px;
+
+body {
+  background-color: #2A3F54;
+  font-size: $fontSize;
+}
+
+#menu {
+  background-color: #2A3F54;
+  float: left;
+  width: 230px;
+
+  ul {
+    list-style: inside none;
+    padding: 0 12px;
+  }
+}
+
+#main {
+  background-color: #f7f7f7;
+  padding: 10px 20px 45px;
+  margin-left: 230px;
+  min-height: 100vh;
+
+  table {
+    font-size: $fontSize;
+  }
+}
+
+form {
+  margin: 0 0 15px;
+  padding: 0;
+}
+
+#map {
+  background-color: grey;
+  height: 200px;
+  width: 100%;
+}
+
+.box {
+  background: #fff;
+  border: 1px solid #ececec;
+  margin: 9px 0;
+  padding: 15px 9px;
+
+  table {
+    margin-bottom: 0;
+  }
+}

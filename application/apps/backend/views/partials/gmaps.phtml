@@ -1,0 +1,39 @@
+<script type="text/javascript">
+    function initMap()
+    {
+        var $map = $('#map'),
+            latitude = $('#latitude').val(),
+            longitude = $('#longitude').val(),
+            position;
+
+        if ("" !== latitude && "" !== longitude) {
+            position = {
+                lat: parseFloat(latitude),
+                lng: parseFloat(longitude)
+            };
+        }
+
+        if ("undefined" === typeof position) {
+            $map.hide();
+        } else {
+            $map.show();
+        }
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: position
+        });
+        var marker = new google.maps.Marker({
+            position: position,
+            map: map
+        });
+    }
+
+    $('#latitude, #longitude').on('keyup paste blur', function() {
+        console.log('initMap');
+        initMap();
+    });
+</script>
+<script type="text/javascript" async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHrSCvzI7edRF9o-MaIaIa7sZ3ctXcByo&callback=initMap">
+</script>

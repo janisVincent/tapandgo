@@ -1,0 +1,29 @@
+<fieldset>
+    <div class="col-md-7">
+        <div class="form-group">
+            {{ form.label('name') }}
+            {{ form.render('name', ["class": "form-control"]) }}
+        </div>
+        <div class="form-group">
+            {{ form.label('latitude') }}
+            {{ form.render('latitude', ["class": "form-control"]) }}
+        </div>
+        <div class="form-group">
+            {{ form.label('longitude') }}
+            {{ form.render('longitude', ["class": "form-control"]) }}
+        </div>
+
+        <div id="map"></div>
+
+        <div class="checkbox">
+            <label for="active">
+                {{ form.render('active') }}
+                {{ t._('active') }}
+            </label>
+        </div>
+
+        {{ form.render('id') }}
+        {{ form.render('csrf') }}
+        {{ submit_button(t._('submit'), "class": "btn btn-primary") }}
+    </div>
+</fieldset>

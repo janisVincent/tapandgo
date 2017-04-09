@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>TapAndGo - Admin</title>
+
+    
+        <?= $this->tag->stylesheetLink('//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', false) ?>
+        <?= $this->tag->stylesheetLink('//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css', false) ?>
+        <?= $this->tag->stylesheetLink('css/style.css') ?>
+   
+
+    <?= $this->assets->outputCss() ?>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="menu">
+                <h1><?= $this->tag->linkTo(['/admin', 'Admin']) ?></h1>
+                <nav>
+                    <ul>
+                        <li><?= $this->tag->linkTo(['//documenter.getpostman.com/view/1860660/tapandgo/6YwxEbS', 'API', 'target' => '_blank']) ?></li>
+                        <li><?= $this->tag->linkTo(['/admin/cities', 'Manage cities']) ?></li>
+                        <li><?= $this->tag->linkTo(['/admin/stations', 'Manage stations']) ?></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="main">
+                <?= $this->getContent() ?>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

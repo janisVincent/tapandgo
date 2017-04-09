@@ -1,0 +1,27 @@
+<?php if ($page->total_pages > 1) { ?>
+    <ul class="pagination">
+        <?php if ($page->current > 1) { ?>
+            <li><?= $this->tag->linkTo(['/admin/' . $controller, $t->_('first')]) ?></li>
+            <li><?= $this->tag->linkTo(['/admin/' . $controller . '?page=' . $page->before, $t->_('previous')]) ?></li>
+        <?php } else { ?>
+            <li class="disabled"><span><?= $t->_('first') ?></span></li>
+            <li class="disabled"><span><?= $t->_('previous') ?></span></li>
+        <?php } ?>
+
+        <?php foreach (range(1, $page->total_pages) as $i) { ?>
+            <?php if ($i == $page->current) { ?>
+                <li class="active"><span><?= $i ?></span></li>
+            <?php } else { ?>
+                <li><?= $this->tag->linkTo(['/admin/' . $controller . '?page=' . $i, $i]) ?></li>
+            <?php } ?>
+        <?php } ?>
+
+        <?php if ($page->current < $page->total_pages) { ?>
+            <li><?= $this->tag->linkTo(['/admin/' . $controller . '?page=' . $page->next, $t->_('next')]) ?></li>
+            <li><?= $this->tag->linkTo(['/admin/' . $controller . '?page=' . $page->last, $t->_('last')]) ?></li>
+        <?php } else { ?>
+            <li class="disabled"><span><?= $t->_('next') ?></span></li>
+            <li class="disabled"><span><?= $t->_('last') ?></span></li>
+        <?php } ?>
+    </ul>
+<?php } ?>

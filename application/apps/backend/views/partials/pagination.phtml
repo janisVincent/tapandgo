@@ -1,0 +1,27 @@
+{% if page.total_pages > 1 %}
+    <ul class="pagination">
+        {% if page.current > 1 %}
+            <li>{{ link_to("/admin/" ~ controller , t._('first')) }}</li>
+            <li>{{ link_to("/admin/" ~ controller ~ "?page=" ~ page.before, t._('previous')) }}</li>
+        {% else %}
+            <li class="disabled"><span>{{ t._('first') }}</span></li>
+            <li class="disabled"><span>{{ t._('previous') }}</span></li>
+        {% endif %}
+
+        {% for i in 1..page.total_pages %}
+            {% if i == page.current %}
+                <li class="active"><span>{{ i }}</span></li>
+            {% else %}
+                <li>{{ link_to("/admin/" ~ controller ~ "?page=" ~ i, i) }}</li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page.current < page.total_pages %}
+            <li>{{ link_to("/admin/" ~ controller ~ "?page=" ~ page.next, t._('next')) }}</li>
+            <li>{{ link_to("/admin/" ~ controller ~ "?page=" ~ page.last, t._('last')) }}</li>
+        {% else %}
+            <li class="disabled"><span>{{ t._('next') }}</span></li>
+            <li class="disabled"><span>{{ t._('last') }}</span></li>
+        {% endif %}
+    </ul>
+{% endif %}

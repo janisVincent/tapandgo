@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>TapAndGo - Admin</title>
+
+    {% block head %}
+        {{ stylesheet_link("//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", false) }}
+        {{ stylesheet_link("//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css", false) }}
+        {{ stylesheet_link("css/style.css") }}
+   {% endblock %}
+
+    {{ assets.outputCss() }}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="menu">
+                <h1>{{ link_to("/admin", "Admin") }}</h1>
+                <nav>
+                    <ul>
+                        <li>{{ link_to(
+                            "//documenter.getpostman.com/view/1860660/tapandgo/6YwxEbS",
+                            "API",
+                            "target": "_blank"
+                            ) }}</li>
+                        <li>{{ link_to("/admin/cities", "Manage cities") }}</li>
+                        <li>{{ link_to("/admin/stations", "Manage stations") }}</li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="main">
+                {{ content() }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

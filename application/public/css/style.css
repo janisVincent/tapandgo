@@ -1,0 +1,48 @@
+body {
+  font-size: 14px;
+  background-color: #2a3f54;
+}
+
+#menu {
+  float: left;
+  width: 230px;
+  background-color: #2a3f54;
+}
+
+#menu ul {
+  padding: 0 12px;
+  list-style: inside none;
+}
+
+#main {
+  min-height: 100vh;
+  margin-left: 230px;
+  padding: 10px 20px 45px;
+  background-color: #f7f7f7;
+}
+
+#main table {
+  font-size: 14px;
+}
+
+form {
+  margin: 0 0 15px;
+  padding: 0;
+}
+
+#map {
+  width: 100%;
+  height: 200px;
+  background-color: grey;
+}
+
+.box {
+  margin: 9px 0;
+  padding: 15px 9px;
+  border: 1px solid #ececec;
+  background: #fff;
+}
+
+.box table {
+  margin-bottom: 0;
+}

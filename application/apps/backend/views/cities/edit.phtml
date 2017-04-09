@@ -1,0 +1,11 @@
+<h3>{{ t._('edit') ~ " " ~ t._('city') }}</h3>
+
+<p>{{ this.flashSession.output() }}</p>
+
+{{ form("admin/cities/save", "method": "post", "class": "box") }}
+    {% include "partials/form/cities.phtml" %}
+{{ endForm() }}
+
+{{ link_to("/admin/cities", t._('back to list')) }}
+
+{% include "partials/gmaps.phtml" %}

@@ -1,0 +1,56 @@
+{{ link_to("/admin/stations/new", t._('add'), "class": "btn btn-primary") }}
+
+{{ form("admin/stations", "class": "form-inline pull-right") }}
+    <div class="form-group">
+        {{ text_field("name", "class": "form-control", "placeholder": t._('name') ) }}
+    </div>
+
+    {{ submit_button("Search", "class": "btn btn-default") }}
+{{ endForm() }}
+
+<p>{{ this.flashSession.output() }}</p>
+
+<div class="box">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>{{ t._('name') }}</th>
+                <th>{{ t._('latitude') }}</th>
+                <th>{{ t._('longitude') }}</th>
+                <th align="center">{{ t._('bikes_capacity') }}</th>
+                <th align="center">{{ t._('bikes_available') }}</th>
+                <th>{{ t._('status') }}</th>
+                <th class="text-right">{{ t._('actions') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if page.items %}
+            {% for item in page.items %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name|e }}</td>
+                    <td>{{ item.latitude|e }}</td>
+                    <td>{{ item.longitude|e }}</td>
+                    <td align="center">{{ item.bikes_capacity|e }}</td>
+                    <td align="center">{{ item.bikes_available|e }}</td>
+                    <td>{{ t._(item.active ? 'active' : 'inactive') }}</td>
+                    <td class="text-right">
+                        {{ link_to("/admin/stations/edit/" ~ item.id, t._('edit')) }}
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="8" class="warning text-center">{{ t._('no_data') }}</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</div>
+
+{% include "partials/pagination" with ["controller": "stations"] %}
+
+{% if this.request.isPost() %}
+    {{ link_to("/admin/stations", t._('back to list')) }}
+{% endif %}

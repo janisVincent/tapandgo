@@ -1,0 +1,19 @@
+{
+  "name": "tapandgo",
+  "version": "0.0.1",
+  "description": "TapAndGo",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Janis Vincent",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-load-plugins": "latest",
+    "gulp-rename": "latest",
+    "gulp-csso": "latest",
+    "gulp-sass": "latest",
+    "gulp-csscomb": "latest",
+    "gulp-cssbeautify": "latest",
+    "gulp-autoprefixer": "latest"
+  }
+}
