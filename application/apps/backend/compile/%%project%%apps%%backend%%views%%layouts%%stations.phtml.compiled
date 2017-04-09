@@ -1,3 +1,0 @@
-<h2><?= $t->_('stations') ?></h2>
-
-<?= $this->getContent() ?>
