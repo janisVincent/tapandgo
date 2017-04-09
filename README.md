@@ -1,12 +1,17 @@
 # TapAndGo
 
+Project built using [Phalcon](https://phalconphp.com) and [Phalcon composer](https://phalcon-compose.readme.io)
+
+## How-to
+
 1. Run `docker-compose build`
 1. Run `docker-compose up -d`
+1. Update /etc/hosts (eg. `127.0.0.1 tapandgo.local`)
 
 
 You can now :
-* Request API at {{domain}}/api
-* Administrate content at {{domain}}/admin
+* Request API at *tapandgo.local*/api
+* Administrate content at *tapandgo.local*/admin
 
 
 Credentials are described [there](https://github.com/janisVincent/tapandgo/blob/master/application/config/config.php)
