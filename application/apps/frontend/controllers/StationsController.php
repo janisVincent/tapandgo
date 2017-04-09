@@ -94,6 +94,9 @@ class StationsController extends Controller
         $lng = floatval($this->request->get('lng'));
         $radius = intval($this->request->get('radius') ?? $this->radius);
 
+        /**
+         * @see http://www.plumislandmedia.net/mysql/haversine-mysql-nearest-loc/
+         */
         $sql = "
 SELECT
     d.*
