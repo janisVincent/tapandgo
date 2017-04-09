@@ -9,4 +9,4 @@
 application/.phalcon/migration-version
 
 composer.lock
-variables.env
+#variables.env
